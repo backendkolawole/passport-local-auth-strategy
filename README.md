@@ -1,6 +1,13 @@
 # Passport-local-authentication-strategy
 Passport strategy for authenticating with a username and password. Lets you authenticate using a username and password in your Node.js application
 
+Passport is Express-compatible authentication middleware for Node.js.
+
+Passport's sole purpose is to authenticate requests, which it does through an extensible set of plugins known as strategies. Passport does not mount routes or assume any particular database schema, which maximizes flexibility and allows application-level decisions to be made by the developer. The API is simple: you provide Passport with a request to authenticate, and Passport provides hooks for controlling what occurs when authentication succeeds or fails.
+By plugging into Passport, local authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.
+
+
+
 # Documentation
 
 You can make a GET request to /api/v1/home. If the user is authenticated, the user will be redirected to api/v1/profile.
