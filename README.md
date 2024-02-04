@@ -32,7 +32,9 @@ Setup
 Clone the repo by running git clone git@github.com:backendkolawole/Passport-local-authentication-strategy.git
 
 Create a .env file and set up the PORT variable 
+
 Set up MONGO_URI connection string in .env file
+
 Set up a session secret in .env file
 
 run npm install
