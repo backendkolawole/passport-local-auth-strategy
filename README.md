@@ -2,7 +2,7 @@
 ## Motivation
 
 ### Goal
-# Passport-local-authentication-strategy
+Passport-local-authentication-strategy
 Passport strategy for authenticating with a username and password. Lets you authenticate using a username and password in your Node.js application
 
 Passport is Express-compatible authentication middleware for Node.js.
@@ -14,7 +14,7 @@ By plugging into Passport, local authentication can be easily and unobtrusively 
 ⚙️ Installation
 
 ## Other usage examples
-# Documentation
+Documentation
 
 You can make a GET request to /api/v1/home. If the user is authenticated, the user will be redirected to api/v1/profile.
 
@@ -28,7 +28,7 @@ You can make a GET request to api/v1/logout to log the user out.
 
 You can make a POST request to api/v1/register to register the user.
 
-# Setup
+Setup
 Clone the repo by running git clone git@github.com:backendkolawole/Passport-local-authentication-strategy.git
 
 Create a .env file and set up the PORT variable 
