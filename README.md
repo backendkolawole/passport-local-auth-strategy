@@ -1,3 +1,7 @@
+# drf-ecommerce-api
+## Motivation
+
+### Goal
 # Passport-local-authentication-strategy
 Passport strategy for authenticating with a username and password. Lets you authenticate using a username and password in your Node.js application
 
@@ -7,7 +11,9 @@ Passport's sole purpose is to authenticate requests, which it does through an ex
 By plugging into Passport, local authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.
 
 
+⚙️ Installation
 
+## Other usage examples
 # Documentation
 
 You can make a GET request to /api/v1/home. If the user is authenticated, the user will be redirected to api/v1/profile.
@@ -32,3 +38,12 @@ Set up a session secret in .env file
 run npm install
 
 run npm start
+
+## Closing and resources 
+## Contact
+## Contributing
+
+
+
+
+
