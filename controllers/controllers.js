@@ -20,7 +20,7 @@ const home = async (req, res) => {
 const profile = async (req, res)=> {
     const {username} = req.user
     console.log('Hit the profile route')
-    return res.json({ username});
+    return res.json(`Welcome ${username}`);
 }
 
 
@@ -28,10 +28,24 @@ const login = async (req, res) => {
     return res.redirect('profile');
 }
 
-const logout = async (req, res) => {
-    console.log('logged out')
-    req.logout();
-    return res.redirect('home');
+// const logout = async (req, res) => {
+//     console.log('logged out')
+//     req.logout();
+//     return res.redirect('home');
+// }
+
+const logout = async (req, res, next) => {
+    console.log('logout controller')
+    req.logout(function (err) {
+        if (err) { 
+            console.log(err)
+            return next(err)
+        }
+        else {
+            console.log('redirecting')
+            return res.redirect('home')
+        }
+    })
 }
 
 // Query database with findOne
@@ -40,14 +54,19 @@ const logout = async (req, res) => {
 // If a user is not found and no errors occur, then insertOne into the database with the username and password. As long as no errors occur there, call next to go to step 2, authenticating the new user, which you already wrote the logic for in your POST / login route.
 
 const register = async (req, res, next) => {
-    const { username } = req.body
+    const { username, password } = req.body
+
+    if (!username || !password) {
+        return res.status(400).json({msg: 'Please provide username and password'})
+    }
 
     try {
         let user = await User.findOne({ username })
-        if (user) res.redirect('profile');
+        if (user) res.json({msg: 'You already have an account please try logging in'});
         else {
             user = await User.create(req.body)
-            res.status(201).json(user)
+            const {username, _id} = user
+            res.status(201).json({user: {username, _id}})
         }
     } catch (error) {
         next(error)
