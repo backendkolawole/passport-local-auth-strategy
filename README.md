@@ -22,7 +22,7 @@ By plugging into Passport, local authentication can be easily and unobtrusively 
 
 - Change the current directory
 
-  `cd passport-local-auth-strategy.git`
+  `cd passport-local-auth-strategy`
   
 - Install packages
 
