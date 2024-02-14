@@ -60,7 +60,6 @@ Register a user.
 - Possible responses
 
 ```
-
 200 (OK)
 
 {
@@ -139,9 +138,6 @@ Welcome, username
 { msg: 'You are not logged in yet.' }
 
 ```
-
-Log the user out.
-
 
 Go to home page
 
