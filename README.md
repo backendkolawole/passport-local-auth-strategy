@@ -10,46 +10,54 @@ By plugging into Passport, local authentication can be easily and unobtrusively 
 
 ## ⚙️ Installation
 
-- Clone the repo
+- Open CMD
+  
+- Change directory to desktop
 
-  `git clone git@github.com:backendkolawole/Passport-local-authentication-strategy.git`
+  `cd desktop`
+   
+- Clone repository
 
-- Create a .env file and set up the PORT variable
-- Set up MONGO_URI connection string in .env file
-- Set up a session secret in .env file
-- run
+  `git clone git@github.com:backendkolawole/passport-local-auth-strategy.git`
+
+- Change the current directory
+
+  `cd passport-local-auth-strategy.git`
+  
+- Install packages
 
   `npm install`
-  
-- run
-  
+
+- Create a .env file in the root directory
+
+  - Set up the `MONGO_URI` variable equal to the DB connection string
+  - Set up the `PORT` variable
+  - Set up `SESSION_SECRET` in .env file
+
+> [!IMPORTANT]
+>  `SESSION_SECRET` is the secret used to sign the session ID cookie (like a string or a Buffer).
+
+- Run the server
+
   `npm start`
   
-## Usage examples
+## features
+`express-session` is a Node.js module available through the npm registry. 
 
+## Usage 
 The API is simple: you provide Passport with a request to authenticate, and Passport provides hooks for controlling what occurs when authentication succeeds or fails.
 
-**GET /api/v1/home**. 
-If the user is authenticated, the user will be redirected to api/v1/profile.
 
-**GET api/v1/profile** 
+## Authenticate Requests
+Use passport.authenticate(), specifying the 'local' strategy, to authenticate requests.
 
-Should return a JSON object with the username property.
+For example, as route middleware in an Express application:
 
+```
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  })
 
-**POST api/v1/login**
-
-Should authenticate the user and be redirect to api/v1/profile.
-
-**GET api/v1/logout**
-
-Should log the user out.
-
-**POST api/v1/register**
-Should register the user.
-
-
-## Contact
-
-
-
+```
